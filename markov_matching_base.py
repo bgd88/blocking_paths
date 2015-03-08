@@ -74,12 +74,24 @@ class set(object):
         self._print( "The men are matched too: {}".format(man_matching_vector) )
         self._print( "The women are matched too: {}".format(woman_matching_vector) )
 
+    def get_all_single_pairings(self):
+        pairings = []
+        for man in self.men:
+            for woman in self.women:
+                pairings.append((man.index, woman.index))
+        return pairings
+
+
     def _print(self, string):
         if self.verbose:
             print string
             
 test = set(3,3,{'0':'1', '1':'0'})
 test.print_matching()
+a = test.get_all_single_pairings()
+print len(a) 
+print a
+
 
         
 
